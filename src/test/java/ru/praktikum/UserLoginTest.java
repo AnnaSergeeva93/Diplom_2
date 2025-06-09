@@ -16,9 +16,9 @@ public class UserLoginTest {
 
     private UserSteps userSteps = new UserSteps();
     private String accessToken;
-    private static String email = "anna.1234@yandex.ru";
-    private static String password = "hello12345";
-    private static String name = "Anna";
+    private String email = userSteps.generateRandomEmail();
+    private String password = userSteps.generateRandomPassword();
+    private String name = userSteps.generateRandomName();
 
     @Before
     public void setUp() {

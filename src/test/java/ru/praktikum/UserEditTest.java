@@ -17,14 +17,14 @@ public class UserEditTest {
     private UserSteps userSteps = new UserSteps();
     private String accessToken;
 
-    private static String email = "anna.123@yandex.ru";
-    private static String password = "hello12345";
-    private static String name = "Anna";
+    private String email = userSteps.generateRandomEmail();
+    private String password = userSteps.generateRandomPassword();
+    private String name = userSteps.generateRandomName();
 
 
-    private static String newEmail = "masha.123@yandex.ru";
-    private static String newPassword = "12345hello";
-    private static String newName = "Masha";
+    private String newEmail = userSteps.generateRandomEmail();
+    private String newPassword = userSteps.generateRandomPassword();
+    private String newName = userSteps.generateRandomName();
 
     @Before
     public void setUp() {
@@ -42,7 +42,7 @@ public class UserEditTest {
 
         userSteps.userEditWithLogin(userLoginRequest, userEditRequest)
                 .statusCode(SC_OK)
-                .body("success", is(true), "user.email", equalTo(newEmail));
+                .body("success", is(true), "user.email", equalTo(newEmail.toLowerCase()));
 
         email = newEmail;
     }
